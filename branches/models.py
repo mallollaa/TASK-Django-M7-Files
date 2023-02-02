@@ -14,12 +14,14 @@ class Restaurant(models.Model):
 class Employee(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    avatar = models.ImageField(upload_to="madia/",default="")
     restaurant = models.ForeignKey(
         Restaurant,
         related_name="employees",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
+       
     )
 
     def __str__(self):
